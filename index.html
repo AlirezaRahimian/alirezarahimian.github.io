@@ -3,60 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alireza Rahimian - Product Manager, Game Designer, and Software Developer based in Tehran, Iran.">
-    <meta name="keywords" content="Product Manager, Game Designer, Software Developer, Alireza Rahimian">
-    <meta name="author" content="Alireza Rahimian">
     <title>Alireza Rahimian - Product Manager</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="Images\Profile Picture colorful.jpeg" alt="Alireza Rahimian" class="profile-picture">
+                <div class="header-text">
+                    <h1>Alireza Rahimian</h1>
+                    <p class="title">Product Manager</p>
+                    <p class="contact">
+                        Tehran, Iran | 09125973348 | 
+                        <a href="mailto:Alireza.rahimian91@gmail.com">Alireza.rahimian91@gmail.com</a> | 
+                        <a href="https://www.linkedin.com/in/alireza-rahimian/" target="_blank">LinkedIn</a>
+                    </p>
+                </div>
             </div>
-            <div class="nav-links" id="nav-links">
-                <ul>
-                    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                    <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
-                    <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="resume.pdf" download><i class="fas fa-file-pdf"></i> Download PDF</a></li>
-                </ul>
-            </div>
-        </nav>
+        </div>
+        <button id="mode-toggle" class="mode-toggle">Toggle Dark Mode</button>
     </header>
 
-    <div class="profile-header">
-        <img src="Profile Picture colorful.jpeg" alt="Profile Picture" class="profile-pic">
-        <h1>Alireza Rahimian</h1>
-        <p>Product Manager | Game Designer | Software Developer</p>
-
-    </div>
-
     <section id="experience">
-        <h2><i class="fas fa-briefcase"></i> Experience</h2>
+        <h2>Experience</h2>
         <div class="job">
             <h3>Product Manager</h3>
             <h4>ShinyPi (Software Solutions) | May 2023 – Present</h4>
             <ul>
-                <li>Launched NPS and user feedback systems, driving 15% higher engagement rates.</li>
+                <li>Launched NPS and user feedback systems, driving 15% higher engagement rates and producing 20 iterative product improvements within 6 months.</li>
                 <li>Utilized user feedback to improve product features and performance by 30%.</li>
                 <li>Conducted market analysis of 12 competing apps to inform feature development.</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <h3>Product Manager</h3>
+            <h4>Irapardaz (AI & Dataset Products) | June 2022 – May 2023</h4>
+            <ul>
+                <li>Managed the product lifecycle of 5 products, increasing worker efficiency by 13%.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Project Manager</h3>
+            <h4>ANU Game Studio | Oct 2020 – May 2022</h4>
+            <ul>
+                <li>Authored development roadmaps and expanded the game development team by 100%.</li>
+                <li>Oversaw online and offline game production, reducing costs by 55%.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Game Designer</h3>
+            <h4>Riz Bazi | June 2013 – Oct 2016</h4>
+            <ul>
+                <li>Co-founded Riz Bazi, managing 5 major game projects from concept to launch.</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <h3>Game Designer</h3>
+            <h4>Radin Game Studio | Oct 2016 – July 2017</h4>
+            <ul>
+                <li>Delivered 2 games, balancing gameplay mechanics and improving tutorials based on feedback.</li>
             </ul>
         </div>
     </section>
 
     <section id="education">
-        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <h2>Education</h2>
         <p>Bachelor of Science in Computer Software Engineering, Islamic Azad University (2009 – 2013)</p>
     </section>
 
     <section id="skills">
-        <h2><i class="fas fa-tools"></i> Skills</h2>
+        <h2>Skills</h2>
         <ul>
             <li>Product Management: Documentation, Roadmapping, UX Design, Agile Methodologies.</li>
             <li>Technical Proficiency: Advanced Analytical Techniques, Data-Driven Decision Processes.</li>
@@ -66,50 +88,33 @@
     </section>
 
     <section id="certifications">
-        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+        <h2>Certifications</h2>
         <ul>
             <li>Product Management, Bozhan (2021)</li>
         </ul>
     </section>
 
-    <section id="contact">
-        <h2><i class="fas fa-envelope"></i> Contact</h2>
-        <form action="mailto:Alireza.rahimian91@gmail.com" method="post" enctype="text/plain">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message"></textarea><br><br>
-            <input type="submit" value="Send">
-        </form>
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <img src="Images\testimonial1.jpg" alt="Person 1">
+                <div class="testimonial-text">
+                    <h3><a href="https://www.linkedin.com/in/person1" target="_blank">Person 1</a></h3>
+                    <p>"Alireza is an exceptional product manager who consistently delivers outstanding results."</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="Images\testimonial2.jpg" alt="Person 2">
+                <div class="testimonial-text">
+                    <h3><a href="https://www.linkedin.com/in/person2" target="_blank">Person 2</a></h3>
+                    <p>"Working with Alireza has been a pleasure. His insights and leadership are invaluable."</p>
+                </div>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
     </section>
 
-    <footer>
-        <p>© 2024 Alireza Rahimian</p>
-        <!-- Contact button -->
-        <button id="contact-button">Better call me</button>
-    </footer>
-    
-<!-- Contact Modal -->
-<div id="contact-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Contact Information</h2>
-
-        <!-- Clickable contact information with icons -->
-        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Alireza.rahimian91@gmail.com">Alireza.rahimian91@gmail.com</a></p>
-        <p><i class="fas fa-phone"></i> Phone: <a href="tel:+09125973348">09125973348</a></p>
-        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/alireza-rahimian/" target="_blank">linkedin.com/in/alireza-rahimian</a></p>
-
-        <h3>Send me a message:</h3>
-        <form action="mailto:Alireza.rahimian91@gmail.com" method="post" enctype="text/plain">
-            <label for="email">Your Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-            <label for="message">Your Message:</label><br>
-            <textarea id="message" name="message" required></textarea><br><br>
-            <input type="submit" value="Send">
-        </form>
-    </div>
-</div>
-    
+    <script src="scripts.js"></script>
 </body>
 </html>
