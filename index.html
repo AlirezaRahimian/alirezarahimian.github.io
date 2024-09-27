@@ -4,236 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alireza Rahimian - Product Manager</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #0062cc, #003366);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid white;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out, float 3s ease-in-out infinite;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-            animation: slideIn 1s ease-out;
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        h2 {
-            color: #003366;
-            border-bottom: 2px solid #003366;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        .job {
-            background-color: white;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 1s ease-out;
-        }
-        .job:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .job h3 {
-            margin-top: 0;
-            color: #0066cc;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .skill {
-            background-color: #e1ecf4;
-            color: #0066cc;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease;
-        }
-        .skill:hover {
-            background-color: #0066cc;
-            color: white;
-        }
-        @media (max-width: 600px) {
-            header { padding: 1rem 0; }
-            h1 { font-size: 2em; }
-            .profile-pic { width: 150px; height: 150px; }
-        }
-
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #f4f4f4;
-        }
-
-        body.dark-mode header {
-            background: linear-gradient(135deg, #003366, #001a33);
-        }
-
-        body.dark-mode h2 {
-            color: #4d94ff;
-            border-bottom-color: #4d94ff;
-        }
-
-        body.dark-mode .job {
-            background-color: #2a2a2a;
-            box-shadow: 0 3px 10px rgba(255,255,255,0.1);
-        }
-
-        body.dark-mode .job h3 {
-            color: #66b3ff;
-        }
-
-        body.dark-mode .skill {
-            background-color: #003366;
-            color: #e1ecf4;
-        }
-
-        body.dark-mode .skill:hover {
-            background-color: #0066cc;
-        }
-
-        /* Mode toggle button styles */
-        #mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #0066cc;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        #mode-toggle:hover {
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode #mode-toggle {
-            background-color: rgba(26, 26, 26, 0.9);
-            color: #66b3ff;
-        }
-
-        body.dark-mode #mode-toggle:hover {
-            background-color: #1a1a1a;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button id="mode-toggle">Toggle Dark Mode</button>
-
     <header>
-        <img src="Profile Picture colorful.jpeg" alt="Alireza Rahimian" class="profile-pic">
         <h1>Alireza Rahimian</h1>
         <p>Product Manager</p>
+        <p>Tehran, Iran | 09125973348 | <a href="mailto:Alireza.rahimian91@gmail.com">Alireza.rahimian91@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/alireza-rahimian/" target="_blank">LinkedIn</a></p>
     </header>
 
-    <div class="container">
-        <section>
-            <h2>Experience</h2>
-            <div class="job">
-                <h3>ShinyPi - Product Manager</h3>
-                <p><em>May 2023 – Present</em></p>
-                <ul>
-                    <li>Launched NPS and user feedback systems, improving engagement rates by 15%</li>
-                    <li>Implemented 20 product improvements based on user feedback</li>
-                    <li>Increased application performance by 30%</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Irapardaz - Product Manager</h3>
-                <p><em>June 2022 – May 2023</em></p>
-                <ul>
-                    <li>Managed product lifecycle for 5 AI & Dataset products</li>
-                    <li>Increased worker efficiency by 13% through feature upgrades</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>ANU Game Studio - Project Manager</h3>
-                <p><em>Oct 2020 – May 2022</em></p>
-                <ul>
-                    <li>Expanded game development team by 100%</li>
-                    <li>Reduced development costs by 55% through process optimization</li>
-                </ul>
-            </div>
-        </section>
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="job">
+            <h3>Product Manager</h3>
+            <h4>ShinyPi (Software Solutions) | May 2023 – Present</h4>
+            <ul>
+                <li>Launched NPS and user feedback systems, driving 15% higher engagement rates and producing 20 iterative product improvements within 6 months.</li>
+                <li>Utilized user feedback to improve product features and performance by 30%.</li>
+                <li>Conducted market analysis of 12 competing apps to inform feature development.</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <h3>Product Manager</h3>
+            <h4>Irapardaz (AI & Dataset Products) | June 2022 – May 2023</h4>
+            <ul>
+                <li>Managed the product lifecycle of 5 products, increasing worker efficiency by 13%.</li>
+            </ul>
+        </div>
 
-        <section>
-            <h2>Education</h2>
-            <div class="job">
-                <h3>Bachelor of Science in Computer Software Engineering</h3>
-                <p>Islamic Azad University, 2009 – 2013</p>
-            </div>
-        </section>
+        <div class="job">
+            <h3>Project Manager</h3>
+            <h4>ANU Game Studio | Oct 2020 – May 2022</h4>
+            <ul>
+                <li>Authored development roadmaps and expanded the game development team by 100%.</li>
+                <li>Oversaw online and offline game production, reducing costs by 55%.</li>
+            </ul>
+        </div>
 
-        <section>
-            <h2>Skills</h2>
-            <div class="skills">
-                <span class="skill">Product Management</span>
-                <span class="skill">UX Design</span>
-                <span class="skill">Agile Methodologies</span>
-                <span class="skill">Data-Driven Decision Making</span>
-                <span class="skill">Cross-Functional Leadership</span>
-                <span class="skill">Market Research</span>
-                <span class="skill">Product Lifecycle Management</span>
-                <span class="skill">Stakeholder Management</span>
-            </div>
-        </section>
-    </div>
+        <div class="job">
+            <h3>Game Designer</h3>
+            <h4>Riz Bazi | June 2013 – Oct 2016</h4>
+            <ul>
+                <li>Co-founded Riz Bazi, managing 5 major game projects from concept to launch.</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <h3>Game Designer</h3>
+            <h4>Radin Game Studio | Oct 2016 – July 2017</h4>
+            <ul>
+                <li>Delivered 2 games, balancing gameplay mechanics and improving tutorials based on feedback.</li>
+            </ul>
+        </div>
+    </section>
 
-    <script>
-        const modeToggle = document.getElementById('mode-toggle');
-        const body = document.body;
+    <section id="education">
+        <h2>Education</h2>
+        <p>Bachelor of Science in Computer Software Engineering, Islamic Azad University (2009 – 2013)</p>
+    </section>
 
-        modeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            modeToggle.textContent = isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode';
-        });
-    </script>
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Product Management: Documentation, Roadmapping, UX Design, Agile Methodologies.</li>
+            <li>Technical Proficiency: Advanced Analytical Techniques, Data-Driven Decision Processes.</li>
+            <li>Leadership: Cross-Functional Team Leadership, Stakeholder Management, Negotiation.</li>
+            <li>Languages: Farsi (Native), English (Upper Intermediate).</li>
+        </ul>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Product Management, Bozhan (2021)</li>
+        </ul>
+    </section>
+
 </body>
 </html>
