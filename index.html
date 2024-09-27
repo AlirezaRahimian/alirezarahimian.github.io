@@ -97,9 +97,75 @@
             h1 { font-size: 2em; }
             .profile-pic { width: 150px; height: 150px; }
         }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+
+        body.dark-mode header {
+            background: linear-gradient(135deg, #003366, #001a33);
+        }
+
+        body.dark-mode h2 {
+            color: #4d94ff;
+            border-bottom-color: #4d94ff;
+        }
+
+        body.dark-mode .job {
+            background-color: #2a2a2a;
+            box-shadow: 0 3px 10px rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .job h3 {
+            color: #66b3ff;
+        }
+
+        body.dark-mode .skill {
+            background-color: #003366;
+            color: #e1ecf4;
+        }
+
+        body.dark-mode .skill:hover {
+            background-color: #0066cc;
+        }
+
+        /* Mode toggle button styles */
+        #mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0066cc;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #mode-toggle:hover {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode #mode-toggle {
+            background-color: rgba(26, 26, 26, 0.9);
+            color: #66b3ff;
+        }
+
+        body.dark-mode #mode-toggle:hover {
+            background-color: #1a1a1a;
+        }
     </style>
 </head>
 <body>
+    <button id="mode-toggle">Toggle Dark Mode</button>
+
     <header>
         <img src="Profile Picture colorful.jpeg" alt="Alireza Rahimian" class="profile-pic">
         <h1>Alireza Rahimian</h1>
@@ -158,5 +224,16 @@
             </div>
         </section>
     </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            modeToggle.textContent = isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+        });
+    </script>
 </body>
 </html>
