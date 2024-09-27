@@ -1,131 +1,208 @@
 /* General styles */
 body {
-    font-family: 'Polaris', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Light mode variables */
-:root {
-    --bg-color: #f4f4f4;
-    --text-color: #333;
-    --link-color: #0073e6;
-    --link-hover-color: #005bb5;
-    --header-bg-color: #0073e6;
-    --header-text-color: #ffffff;
-}
-
-/* Dark mode variables */
-.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #f5f5f5;
-    --link-color: #66b3ff;
-    --link-hover-color: #3399ff;
-    --header-bg-color: #2c3e50;
-    --header-text-color: #f5f5f5;
-}
-
-/* Header styles */
-.header {
+/* Floating header for mobile */
+#section-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 115, 230, 0.9); /* Semi-transparent background */
+    color: white;
+    font-size: 1.2em;
     text-align: center;
-    padding: 20px;
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
-    position: relative;
+    z-index: 1001; /* Make sure it appears on top */
+    display: none; /* Hidden by default */
 }
 
-.header-content {
+/* Active link styling */
+nav ul li a.active {
+    background-color: #005bb5; /* Highlight the active link */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Show the floating header on mobile screens */
+@media (max-width: 768px) {
+    #section-header {
+        display: block; /* Floating header visible on mobile */
+    }
+
+    .profile-header {
+        padding-top: 120px; /* Push content down to make space for floating header */
+    }
+
+    nav {
+        top: 50px; /* Push nav down below the floating header */
+    }
+}
+
+/* Navigation */
+nav {
+    background-color: #0073e6;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Toggle button */
+.nav-toggle {
+    display: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: white;
+}
+
+/* Navigation links */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
     display: flex;
     align-items: center;
-    gap: 30px;
-    justify-content: center;
 }
 
-.profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--header-text-color);
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+nav ul li a i {
+    margin-right: 8px;
 }
 
-.header h1 {
-    margin-bottom: 10px;
-    font-size: 2.5em;
-}
-
-.header p {
-    margin: 5px 0;
-    font-size: 1.2em;
-}
-
-.header a {
-    color: var(--header-text-color);
-    text-decoration: none;
-}
-
-.header a:hover {
-    color: var(--link-hover-color);
+nav ul li a:hover {
     text-decoration: underline;
 }
 
-.mode-toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    background-color: var(--header-text-color);
-    color: var(--header-bg-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Hide the navigation links by default for mobile */
+.nav-links {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #0073e6;
+        flex-direction: column;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-50%);
+        transition: opacity 0.5s ease, transform 0.5s ease; /* Transition for smooth animation */
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .nav-toggle {
+        display: block; /* Show toggle button */
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1; /* Fade in */
+        transform: translateY(0); /* Slide in */
+        animation: slideIn 0.5s ease forwards; /* Apply the slide animation */
+    }
+}
+
+/* Keyframe animation for sliding the menu in */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Profile Header */
+.profile-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background-color: #0073e6;
+    color: white;
+    margin-top: 0;
+    padding-top: 90px; /* Adds padding to account for the fixed nav */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.profile-header h1 {
+    font-size: 2.5em;
+}
+
+.profile-header p {
+    font-size: 1.2em;
+}
+
+.profile-header a {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+.profile-header a:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 /* Section styles */
 section {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
-    background-color: var(--bg-color);
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     font-size: 1.8em;
-    color: var(--link-color);
-    border-bottom: 2px solid var(--link-color);
+    color: #0073e6;
+    border-bottom: 2px solid #0073e6;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-.job h3, .job h4 {
-    margin: 0;
-    padding: 0;
-}
-
-.job h3 {
-    font-size: 1.5em;
-    color: var(--text-color);
-}
-
-.job h4 {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.job ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.job ul li {
-    margin-bottom: 10px;
+h2 i {
+    margin-right: 10px; /* Adds space between icon and heading text */
 }
 
 ul {
@@ -138,27 +215,34 @@ ul li {
     font-size: 1.1em;
 }
 
-/* Links */
-a {
-    color: var(--link-color);
-    text-decoration: none;
+label {
+    font-weight: bold;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Form */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        font-size: 90%;
-    }
+form input[type="submit"] {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
-    header h1 {
-        font-size: 2em;
-    }
+form input[type="submit"]:hover {
+    background-color: #005bb5;
+}
 
-    h2 {
-        font-size: 1.5em;
-    }
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0073e6;
+    color: white;
 }
