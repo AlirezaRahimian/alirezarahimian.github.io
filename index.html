@@ -34,8 +34,7 @@
         <img src="Profile Picture colorful.jpeg" alt="Profile Picture" class="profile-pic">
         <h1>Alireza Rahimian</h1>
         <p>Product Manager | Game Designer | Software Developer</p>
-        <p>Tehran, Iran | 09125973348 | <a href="mailto:Alireza.rahimian91@gmail.com">Alireza.rahimian91@gmail.com</a></p>
-        <p><a href="https://www.linkedin.com/in/alireza-rahimian/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+
     </div>
 
     <section id="experience">
@@ -86,6 +85,31 @@
 
     <footer>
         <p>© 2024 Alireza Rahimian</p>
+        <!-- Contact button -->
+        <button id="contact-button">Better call me</button>
     </footer>
+    
+<!-- Contact Modal -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Contact Information</h2>
+
+        <!-- Clickable contact information with icons -->
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Alireza.rahimian91@gmail.com">Alireza.rahimian91@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> Phone: <a href="tel:+09125973348">09125973348</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/alireza-rahimian/" target="_blank">linkedin.com/in/alireza-rahimian</a></p>
+
+        <h3>Send me a message:</h3>
+        <form action="mailto:Alireza.rahimian91@gmail.com" method="post" enctype="text/plain">
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</div>
+    
 </body>
 </html>

@@ -42,3 +42,24 @@ window.addEventListener('scroll', () => {
         sectionHeader.style.display = 'none'; // Hide floating header on desktop
     }
 });
+// Get modal elements
+const modal = document.getElementById('contact-modal');
+const contactButton = document.getElementById('contact-button');
+const closeButton = document.querySelector('.close-button');
+
+// When the user clicks the contact button, open the modal
+contactButton.addEventListener('click', () => {
+    modal.style.display = 'flex'; // Display the modal
+});
+
+// When the user clicks on the close button, close the modal
+closeButton.addEventListener('click', () => {
+    modal.style.display = 'none'; // Hide the modal
+});
+
+// When the user clicks anywhere outside the modal content, close the modal
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none'; // Hide the modal
+    }
+});
