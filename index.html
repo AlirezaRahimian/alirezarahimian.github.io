@@ -3,118 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alireza Rahimian - Product Manager</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <title>My Online Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="container">
-            <div class="header-content">
-                <img src="Images\Profile Picture colorful.jpeg" alt="Alireza Rahimian" class="profile-picture">
-                <div class="header-text">
-                    <h1>Alireza Rahimian</h1>
-                    <p class="title">Product Manager</p>
-                    <p class="contact">
-                        Tehran, Iran | 09125973348 | 
-                        <a href="mailto:Alireza.rahimian91@gmail.com">Alireza.rahimian91@gmail.com</a> | 
-                        <a href="https://www.linkedin.com/in/alireza-rahimian/" target="_blank">LinkedIn</a>
-                    </p>
-                </div>
-            </div>
+            <h1>Alireza Rahimian</h1>
+            <p>Product Manager | UI/UX Designer | Web Developer</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+            <button id="darkModeToggle">Toggle Dark Mode</button>
         </div>
-        <button id="mode-toggle" class="mode-toggle">Toggle Dark Mode</button>
     </header>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="job">
-            <h3>Product Manager</h3>
-            <h4>ShinyPi (Software Solutions) | May 2023 – Present</h4>
-            <ul>
-                <li>Launched NPS and user feedback systems, driving 15% higher engagement rates and producing 20 iterative product improvements within 6 months.</li>
-                <li>Utilized user feedback to improve product features and performance by 30%.</li>
-                <li>Conducted market analysis of 12 competing apps to inform feature development.</li>
-            </ul>
-        </div>
-        
-        <div class="job">
-            <h3>Product Manager</h3>
-            <h4>Irapardaz (AI & Dataset Products) | June 2022 – May 2023</h4>
-            <ul>
-                <li>Managed the product lifecycle of 5 products, increasing worker efficiency by 13%.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <h3>Project Manager</h3>
-            <h4>ANU Game Studio | Oct 2020 – May 2022</h4>
-            <ul>
-                <li>Authored development roadmaps and expanded the game development team by 100%.</li>
-                <li>Oversaw online and offline game production, reducing costs by 55%.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <h3>Game Designer</h3>
-            <h4>Riz Bazi | June 2013 – Oct 2016</h4>
-            <ul>
-                <li>Co-founded Riz Bazi, managing 5 major game projects from concept to launch.</li>
-            </ul>
-        </div>
-        
-        <div class="job">
-            <h3>Game Designer</h3>
-            <h4>Radin Game Studio | Oct 2016 – July 2017</h4>
-            <ul>
-                <li>Delivered 2 games, balancing gameplay mechanics and improving tutorials based on feedback.</li>
-            </ul>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Welcome to my online resume! I am a passionate Product Manager with a love for technology and design. I enjoy developing solutions that drive user engagement and product success.</p>
         </div>
     </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <p>Bachelor of Science in Computer Software Engineering, Islamic Azad University (2009 – 2013)</p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Product Management: Documentation, Roadmapping, UX Design, Agile Methodologies.</li>
-            <li>Technical Proficiency: Advanced Analytical Techniques, Data-Driven Decision Processes.</li>
-            <li>Leadership: Cross-Functional Team Leadership, Stakeholder Management, Negotiation.</li>
-            <li>Languages: Farsi (Native), English (Upper Intermediate).</li>
-        </ul>
-    </section>
-
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Product Management, Bozhan (2021)</li>
-        </ul>
-    </section>
-
-    <section id="testimonials">
-        <h2>Testimonials</h2>
-        <div class="testimonials-container">
-            <div class="testimonial">
-                <img src="Images\testimonial1.jpg" alt="Person 1">
-                <div class="testimonial-text">
-                    <h3><a href="https://www.linkedin.com/in/person1" target="_blank">Person 1</a></h3>
-                    <p>"Alireza is an exceptional product manager who consistently delivers outstanding results."</p>
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Company Name</h3>
+                    <p>Role: Product Manager</p>
+                    <p>Dates: 2020 - Present</p>
+                    <p>Details: Leading cross-functional teams to deliver innovative products.</p>
                 </div>
+                <!-- Add more timeline items here -->
             </div>
-            <div class="testimonial">
-                <img src="Images\testimonial2.jpg" alt="Person 2">
-                <div class="testimonial-text">
-                    <h3><a href="https://www.linkedin.com/in/person2" target="_blank">Person 2</a></h3>
-                    <p>"Working with Alireza has been a pleasure. His insights and leadership are invaluable."</p>
-                </div>
-            </div>
-            <!-- Add more testimonials as needed -->
         </div>
     </section>
 
-    <script src="scripts.js"></script>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Product Management</li>
+                <li>UI/UX Design</li>
+                <li>Agile Methodologies</li>
+                <li>Web Development</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Alireza Rahimian. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Contact button and box -->
+    <button id="contactButton" class="contact-button">Contact Me</button>
+
+    <div id="contactBox" class="contact-box">
+        <h3>Contact Information</h3>
+        <p>Email: your.email@example.com</p>
+        <p>Phone: +1 234 567 8900</p>
+        <form id="contactForm">
+            <input type="text" id="contactInfo" placeholder="Your Email or Mobile Number" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <button id="closeContact" class="close-button">Close</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
