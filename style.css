@@ -199,28 +199,47 @@ body.dark-mode footer {
 }
 
 /* Dark mode toggle button */
-#darkModeToggle {
-    background-color: #333;
-    color: #fff;
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    font-size: 18px;
     cursor: pointer;
+    z-index: 1000;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
+    filter: grayscale(100%);
 }
 
-#darkModeToggle:hover {
-    background-color: #555;
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-body.dark-mode #darkModeToggle {
-    background-color: #f0f0f0;
-    color: #333;
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    display: none;
 }
 
-body.dark-mode #darkModeToggle:hover {
-    background-color: #d0d0d0;
+body:not(.dark-mode) .theme-toggle .sun-icon,
+body.dark-mode .theme-toggle .moon-icon {
+    display: inline;
+}
+
+/* Adjust the button for dark mode */
+body.dark-mode .theme-toggle {
+    color: #f0f0f0;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Contact button and box styles */
@@ -246,8 +265,9 @@ body.dark-mode #darkModeToggle:hover {
 .contact-box {
     display: none;
     position: fixed;
-    bottom: 80px;
-    right: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 300px;
     background-color: white;
     border-radius: 10px;
@@ -290,6 +310,7 @@ body.dark-mode #darkModeToggle:hover {
     border: none;
     font-size: 1.5em;
     cursor: pointer;
+    color: #333;
 }
 
 /* Dark mode styles for contact button and box */
@@ -297,7 +318,7 @@ body.dark-mode .contact-button {
     background-color: #00ccff;
 }
 
-body.dark-mode .contact-button:hover {
+body.dark.mode .contact-button:hover {
     background-color: #0099cc;
 }
 
@@ -313,6 +334,18 @@ body.dark-mode .contact-box textarea {
     border-color: #555;
 }
 
-body.dark-mode .contact-box button {
-    background-color: #00ccff;
+body.dark.mode .close-button {
+    color: #f0f0f0;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
 }

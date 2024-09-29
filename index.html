@@ -10,6 +10,10 @@
 <body>
     <header>
         <div class="container">
+            <button id="darkModeToggle" class="theme-toggle">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
             <h1>Alireza Rahimian</h1>
             <p>Product Manager | UI/UX Designer | Web Developer</p>
             <nav>
@@ -19,7 +23,6 @@
                     <li><a href="#skills">Skills</a></li>
                 </ul>
             </nav>
-            <button id="darkModeToggle">Toggle Dark Mode</button>
         </div>
     </header>
 
@@ -75,8 +78,10 @@
             <textarea id="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
-        <button id="closeContact" class="close-button">Close</button>
+        <button id="closeContact" class="close-button">X</button>
     </div>
+
+    <div id="overlay" class="overlay"></div>
 
     <script src="script.js"></script>
 </body>

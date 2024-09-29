@@ -3,15 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactButton = document.getElementById('contactButton');
     const contactBox = document.getElementById('contactBox');
     const closeContact = document.getElementById('closeContact');
+    const overlay = document.getElementById('overlay');
 
-    if (contactButton && contactBox && closeContact) {
+    if (contactButton && contactBox && closeContact && overlay) {
         contactButton.addEventListener('click', function() {
             contactBox.style.display = 'block';
+            overlay.style.display = 'block';
         });
 
-        closeContact.addEventListener('click', function() {
+        function closeContactBox() {
             contactBox.style.display = 'none';
-        });
+            overlay.style.display = 'none';
+        }
+
+        closeContact.addEventListener('click', closeContactBox);
+
+        overlay.addEventListener('click', closeContactBox);
 
         // Contact form submission
         const contactForm = document.getElementById('contactForm');
@@ -25,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(contactInfo && message) {
                     alert('Thank you! Your message has been sent.');
                     contactForm.reset();
-                    contactBox.style.display = 'none';
+                    closeContactBox();
                 } else {
                     alert('Please fill out all fields.');
                 }
