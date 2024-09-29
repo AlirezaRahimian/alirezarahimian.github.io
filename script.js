@@ -61,4 +61,69 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Navigation highlight on scroll
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navbar = document.getElementById('navbar');
+    const navbarOffset = navbar.offsetTop;
+
+    function stickyNavbar() {
+        if (window.pageYOffset >= navbarOffset) {
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+    }
+
+    function highlightNavOnScroll() {
+        let scrollPosition = window.scrollY;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navbar.offsetHeight - 10; // Adjust for navbar height
+            const sectionBottom = sectionTop + section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+        stickyNavbar();
+        highlightNavOnScroll();
+    });
+
+    // Call once to set initial state
+    stickyNavbar();
+    highlightNavOnScroll();
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ... rest of the existing code ...
 });
