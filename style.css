@@ -247,19 +247,28 @@ body.dark-mode .theme-toggle:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #00aaff;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.1em;
-    border-radius: 30px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    z-index: 999;
 }
 
 .contact-button:hover {
-    background-color: #0088cc;
+    background-color: #0056b3;
+}
+
+body.dark-mode .contact-button {
+    background-color: #0056b3;
+}
+
+body.dark.mode .contact-button:hover {
+    background-color: #003d80;
 }
 
 .contact-box {
@@ -314,14 +323,6 @@ body.dark-mode .theme-toggle:hover {
 }
 
 /* Dark mode styles for contact button and box */
-body.dark-mode .contact-button {
-    background-color: #00ccff;
-}
-
-body.dark.mode .contact-button:hover {
-    background-color: #0099cc;
-}
-
 body.dark-mode .contact-box {
     background-color: #2a2a2a;
     color: #f0f0f0;
