@@ -544,7 +544,7 @@ body.dark-mode .timeline-item::after {
 .modal {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
@@ -572,7 +572,7 @@ body.dark-mode .timeline-item::after {
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: black;
     text-decoration: none;
     cursor: pointer;
 }
@@ -657,4 +657,45 @@ body.dark-mode .skills-list li {
         padding: 6px 12px;
         font-size: 12px;
     }
+}
+
+#modalImagesContainer {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#prevImage {
+    left: 10px;
+}
+
+#nextImage {
+    right: 10px;
 }
