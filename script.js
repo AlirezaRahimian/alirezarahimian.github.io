@@ -1,3 +1,108 @@
+let navbar;
+let navbarTop=0;
+let isInitialized = false;
+let currentSection = '';
+
+function updateActiveNavItem(navItems, activeIndex) {
+    navItems.forEach((item, index) => {
+        if (index === activeIndex) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
+
+// Initialize function
+function initNavbar() {
+    console.log('Initializing navbar...');
+    navbar = document.getElementById('navbar');
+    if (navbar) {
+        console.log('Navbar found, setting navbarTop...');
+        navbarTop = navbar.offsetTop;
+        console.log('navbarTop set to:', navbarTop);
+        isInitialized = true;
+        console.log('Navbar initialized successfully.');
+        
+        // Add event listeners only after initialization
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+        
+        // Initial call to set the navbar state
+        stickyNavbar();
+        updateNavigation();
+    } else {
+        console.error('Navbar element not found');
+    }
+}
+
+function handleScroll() {
+    if (isInitialized) {
+        stickyNavbar();
+        updateNavigation();
+    } else {
+        console.warn('Scroll event triggered before initialization');
+    }
+}
+
+function handleResize() {
+    if (isInitialized) {
+        console.log('Resizing, updating navbarTop...');
+        navbarTop = navbar.offsetTop;
+        console.log('navbarTop updated to:', navbarTop);
+        stickyNavbar();
+    }
+}
+
+function stickyNavbar() {
+    if (!isInitialized) {
+        console.warn('Attempting to make navbar sticky before initialization');
+        return;
+    }
+    
+    if (window.scrollY >= navbarTop) {
+        navbar.classList.add('sticky');
+    } else {
+        navbar.classList.remove('sticky');
+    }
+}
+
+
+
+function updateNavigation() {
+    if (!isInitialized) {
+        console.warn('Attempting to update navigation before initialization');
+        return;
+    }
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-item');
+    const scrollPosition = window.scrollY;
+
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop - navbar.offsetHeight;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            const newSection = section.getAttribute('id');
+            if (newSection !== currentSection) {
+                currentSection = newSection;
+                updateActiveNavItem(navItems, index);
+            }
+        }
+    });
+}
+
+// Ensure initialization happens after DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM content loaded, initializing navbar...');
+    initNavbar();
+});
+
+// Add this single event listener
+document.addEventListener('DOMContentLoaded', initNavbar);
+
+// If you need to call stickyNavbar elsewhere, always check isInitialized first
+
 document.addEventListener('DOMContentLoaded', function() {
     // Contact button functionality
     const contactButton = document.getElementById('contactButton');
@@ -68,14 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const navbar = document.getElementById('navbar');
     const navbarOffset = navbar.offsetTop;
-
-    function stickyNavbar() {
-        if (window.pageYOffset >= navbarOffset) {
-            navbar.classList.add('sticky');
-        } else {
-            navbar.classList.remove('sticky');
-        }
-    }
 
     function highlightNavOnScroll() {
         let scrollPosition = window.scrollY;
@@ -234,4 +331,48 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.warn('Experience modal element not found');
     }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-item').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    function asyncOperation() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Operation complete');
+            }, 1000);
+        });
+    }
+
+    asyncOperation()
+        .then(result => console.log(result))
+        .catch(error => console.error(error));
+
+    window.addEventListener('message', event => {
+        if (event.data.type === 'asyncOperation') {
+            // Process the message
+            asyncOperation()
+                .then(result => {
+                    event.source.postMessage({ type: 'response', data: result }, event.origin);
+                })
+                .catch(error => {
+                    event.source.postMessage({ type: 'error', data: error.message }, event.origin);
+                });
+        }
+    });
 });

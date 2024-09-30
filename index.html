@@ -20,12 +20,11 @@
     </header>
 
     <nav id="navbar">
-        <div class="container">
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-            </ul>
+        <div class="nav-container">
+            <a href="#about" class="nav-item">About</a>
+            <a href="#experiences" class="nav-item">Experience</a>
+            <a href="#skills" class="nav-item">Skills</a>
+            <!-- Add more navigation items as needed -->
         </div>
     </nav>
 
@@ -103,8 +102,9 @@
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Alireza Rahimian. All Rights Reserved.</p>
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> Alireza Rahimian. All Rights Reserved.</p>
+            <button class="contact-button" onclick="contactMe()">Contact Me</button>
         </div>
     </footer>
 
@@ -127,7 +127,7 @@
 
     <script src="script.js"></script>
 
-    <!-- Add this just before the closing </body> tag -->
+    <!-- Add this just before the closing tag -->
     <div id="experience" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -144,5 +144,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Contact button functionality
+        function contactMe() {
+            // Add your contact logic here
+            console.log('Contact button clicked');
+        }
+    </script>
 </body>
 </html>
