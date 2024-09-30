@@ -1,5 +1,5 @@
 {
-  "name": "alirezarahimian-github-io",
+  "name": "my-project",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -14,7 +14,7 @@
     "@strapi/plugin-cloud": "5.0.1",
     "@strapi/plugin-users-permissions": "5.0.1",
     "@strapi/strapi": "5.0.1",
-    "pg": "8.8.0",
+    "better-sqlite3": "9.4.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -31,6 +31,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "c112741a-50a8-4af2-813d-467c3d15d662"
+    "uuid": "71dc8d2c-1592-4e28-9249-8a3f4a7a6df7"
   }
 }
