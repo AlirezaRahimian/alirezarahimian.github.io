@@ -400,52 +400,60 @@ body.dark.mode .close-button {
 /* Navigation styles */
 #navbar {
     background-color: #f8f9fa;
-    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    z-index: 1000; /* Ensure navbar is above other elements */
 }
 
-#navbar.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-item.active {
+    color: #007bff;
 }
 
 body.dark-mode #navbar {
     background-color: #333;
 }
 
-#navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-#navbar li {
-    margin: 0 15px;
-}
-
-#navbar a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-body.dark-mode #navbar a {
+body.dark-mode .nav-item {
     color: #f8f9fa;
 }
 
-#navbar a.active {
-    color: #007bff;
+body.dark-mode .nav-item.active {
+    color: #4da6ff;
 }
 
-body.dark.mode #navbar a.active {
-    color: #4da6ff;
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: center;
+    }
+
+    .nav-item {
+        display: none;
+    }
+
+    .nav-item.active {
+        display: block;
+    }
 }
 
 /* Adjust header padding to accommodate sticky navbar */
