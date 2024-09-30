@@ -707,3 +707,151 @@ body.dark-mode .skills-list li {
 #nextImage {
     right: 10px;
 }
+
+/* Add these styles at the end of your CSS file */
+
+/* Testimonial Styles */
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+}
+
+.testimonial-card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-card .profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonial-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.testimonial-card .role {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.testimonial-card .linkedin-icon img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.testimonial-card blockquote {
+    font-style: italic;
+    color: #333;
+    margin: 0;
+    padding: 10px 0;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Dark mode styles for testimonials */
+body.dark-mode .testimonial-card {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .testimonial-card h3 {
+    color: #4da6ff;
+}
+
+body.dark-mode .testimonial-card .role {
+    color: #a0a0a0;
+}
+
+body.dark-mode .testimonial-card blockquote {
+    color: #f0f0f0;
+    border-color: #4a4a4a;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.testimonial-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.testimonial-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        width: 250px;
+    }
+}
+
+/* Education styles */
+#education .timeline-item {
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+body.dark-mode #education .timeline-item {
+    background-color: #1a2a3a; /* Darker blue for dark mode */
+}
+
+/* Certification styles */
+.certification-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.certification-list li {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.certification-list li:hover {
+    transform: translateY(-3px);
+}
+
+.certification-list h3 {
+    margin: 0 0 5px 0;
+    color: #007bff;
+}
+
+.certification-list p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+body.dark-mode .certification-list li {
+    background-color: #1a2a3a;
+}
+
+body.dark-mode .certification-list h3 {
+    color: #4da6ff;
+}
+
+body.dark-mode .certification-list p {
+    color: #bbb;
+}
