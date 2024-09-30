@@ -266,12 +266,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 details: 'Assisted in MVP development for three successful startup launches. Collaborated with founders and senior developers to implement key features and functionalities for various web and mobile applications.',
                 skills: ['Rapid Prototyping', 'Full-stack Development', 'Startup Ecosystem', 'Collaboration'],
                 images: ['Images/image1.jpg', 'Images/image2.jpg']
+            },
+            'university': {
+                title: 'University of Technology',
+                role: 'Bachelor of Science in Computer Science',
+                dates: '2010 - 2014',
+                details: 'Focused on software engineering, data structures, and algorithms. Participated in various hackathons and coding competitions. Graduated with honors.',
+                skills: ['Java', 'Python', 'Data Structures', 'Algorithms', 'Software Engineering'],
+                images: ['Images/university1.jpg', 'Images/university2.jpg']
+            },
+            'college': {
+                title: 'Tech College',
+                role: 'Associate\'s Degree in Web Development',
+                dates: '2008 - 2010',
+                details: 'Learned fundamentals of web development including HTML, CSS, and JavaScript. Completed several web projects and internships.',
+                skills: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+                images: ['Images/college1.jpg', 'Images/college2.jpg']
             }
         };
 
         document.querySelectorAll('.timeline-item').forEach(item => {
             item.addEventListener('click', function(e) {
-                const experienceId = this.dataset.experience;
+                const experienceId = this.dataset.experience || this.dataset.education;
                 const data = experienceData[experienceId];
 
                 if (data) {

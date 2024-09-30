@@ -804,3 +804,54 @@ body.dark-mode .testimonial-card blockquote {
         width: 250px;
     }
 }
+
+/* Education styles */
+#education .timeline-item {
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+body.dark-mode #education .timeline-item {
+    background-color: #1a2a3a; /* Darker blue for dark mode */
+}
+
+/* Certification styles */
+.certification-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.certification-list li {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.certification-list li:hover {
+    transform: translateY(-3px);
+}
+
+.certification-list h3 {
+    margin: 0 0 5px 0;
+    color: #007bff;
+}
+
+.certification-list p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+body.dark-mode .certification-list li {
+    background-color: #1a2a3a;
+}
+
+body.dark-mode .certification-list h3 {
+    color: #4da6ff;
+}
+
+body.dark-mode .certification-list p {
+    color: #bbb;
+}
