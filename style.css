@@ -240,7 +240,7 @@ body.dark-mode textarea:focus {
 }
 
 body.dark-mode button {
-    background-color: #00ccff;
+    background-color: inherit;
 }
 
 body.dark-mode button:hover {
@@ -255,31 +255,20 @@ body.dark-mode footer {
 
 /* Dark mode toggle button */
 .theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
+    background: transparent;
     border: none;
-    font-size: 18px;
+    font-size: 24px;
     cursor: pointer;
-    z-index: 1001; /* Ensure it's above other elements */
-    padding: 5px;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-    filter: grayscale(100%);
+    color: #fff;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.8;
 }
 
-.theme-toggle .sun-icon,
-.theme-toggle .moon-icon {
+.theme-toggle .icon {
     display: none;
 }
 
@@ -288,23 +277,39 @@ body.dark-mode .theme-toggle .moon-icon {
     display: inline;
 }
 
+body.dark-mode .theme-toggle {
+    color: #fff;
+}
+
+/* Mobile styles for the theme toggle */
 @media (max-width: 768px) {
     .theme-toggle {
-        top: 10px;
+        position: fixed;
+        top: 4px;
         right: 10px;
+        z-index: 1001;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 20px;
-        width: 35px;
-        height: 35px;
+        padding: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-mode .theme-toggle {
+        background-color: rgba(0, 0, 0, 0.8);
     }
 }
 
-/* Adjust the button for dark mode */
-body.dark-mode .theme-toggle {
-    color: #f0f0f0;
-}
-
-body.dark.mode .theme-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+/* Adjust navbar styles for mobile */
+@media (max-width: 768px) {
+    .nav-container {
+        padding-right: 50px; /* Make space for the theme toggle button */
+    }
 }
 
 /* Contact button and box styles */
@@ -428,9 +433,17 @@ body.dark.mode .close-button {
 
 .nav-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 60px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-items {
+    display: flex;
+    gap: 20px;
 }
 
 .nav-item {
@@ -440,22 +453,30 @@ body.dark.mode .close-button {
     transition: background-color 0.3s ease;
 }
 
+.nav-item:hover,
 .nav-item.active {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {
     .nav-container {
-        justify-content: flex-start;
-        padding-left: 15px;
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        width: 100%;
     }
 
     .nav-item {
-        display: none;
+        text-align: center;
+        padding: 10px;
     }
 
-    .nav-item.active {
-        display: block;
+    .theme-toggle {
+        margin-top: 10px;
     }
 }
 
@@ -463,7 +484,9 @@ body.dark-mode #navbar {
     background-color: #1a1a1a;
 }
 
-body.dark-mode .nav-item.active {
+body.dark-mode .nav-item:hover,
+body.dark-mode .nav-item.active,
+body.dark-mode .theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -490,7 +513,7 @@ body.dark-mode .nav-item.active {
 
 /* Adjust header padding to accommodate sticky navbar */
 header {
-    padding-bottom: 60px;
+    padding-top: 80px;
 }
 
 /* Timeline styles */
