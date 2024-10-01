@@ -6,6 +6,7 @@
     <title>My Online Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -13,6 +14,26 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-T2JKM3LT');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- Hotjar Tracking Code for Site 5154946 (name missing) -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:5154946,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- End Hotjar Tracking Code -->
+
+    <!-- Sentry Tracking Code -->
+    <script
+    src="https://js.sentry-cdn.com/bfc1f869ac552adddb9d56de890cb03a.min.js"
+    crossorigin="anonymous"
+  ></script>
+  <!-- End Sentry Tracking Code -->
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -21,10 +42,6 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <div class="container">
-            <button id="darkModeToggle" class="theme-toggle">
-                <span class="sun-icon">☀️</span>
-                <span class="moon-icon">🌙</span>
-            </button>
             <h1>Alireza Rahimian</h1>
             <p>Product Manager | UI/UX Designer | Web Developer</p>
         </div>
@@ -32,12 +49,18 @@
 
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#about" class="nav-item">About</a>
-            <a href="#experiences" class="nav-item">Experience</a>
-            <a href="#education" class="nav-item">Education</a>
-            <a href="#skills" class="nav-item">Skills</a>
-            <a href="#certifications" class="nav-item">Certifications</a>
-            <a href="#testimonials" class="nav-item">Testimonials</a>
+            <div class="nav-items">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#experiences" class="nav-item">Experience</a>
+                <a href="#education" class="nav-item">Education</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#certifications" class="nav-item">Certifications</a>
+                <a href="#testimonials" class="nav-item">Testimonials</a>
+            </div>
+            <button id="darkModeToggle" class="theme-toggle">
+                <span class="icon sun-icon">☀</span>
+                <span class="icon moon-icon">☽</span>
+            </button>
         </div>
     </nav>
 
