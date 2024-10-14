@@ -170,12 +170,14 @@ document.addEventListener('keydown', () => {
 });
 
 // Add touch event for mobile controls
-document.addEventListener('touchstart', () => {
+document.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Prevent default touch behavior
     velocity += lift; // Apply lift on touch
     jumpSound.play(); // Play jump sound
     if (!backgroundMusic.paused) {
         backgroundMusic.play(); // Play background music only if it's not already playing
     }
+    //console.log("Touch event detected!"); // Debugging log
 });
 
 // Debug button functionality
