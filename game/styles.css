@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: center; /* Center vertically */
+    height: 100vh;
+    background-color: #70c5ce; /* Sky color */
+    position: relative; /* Allow absolute positioning of buttons */
+}
+
+#game-container {
+    position: relative;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center the canvas horizontally */
+}
+
+canvas {
+    border: 2px solid #000; /* Game border */
+}
+
+#scoreboard {
+    font-family: 'Press Start 2P', cursive; /* Apply pixel font */
+    font-size: 24px; /* Font size */
+    color: black; /* Text color */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 5px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    margin: 10px 0; /* Space above and below */
+    position: relative; /* Position relative to the game container */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+#gameOverMessage {
+    font-family: 'Press Start 2P', cursive; /* Apply pixel font */
+    font-size: 24px; /* Font size */
+    color: red; /* Text color */
+    position: absolute; /* Position it absolutely */
+    top: 20px; /* Distance from the top of the canvas */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    text-align: center; /* Center the text */
+    width: 100%; /* Full width */
+    display: none; /* Initially hidden */
+    margin-top: 10px; /* Add margin to separate from scoreboard */
+}
+
+#debugButton, #restartButton {
+    margin-top: 10px; /* Space between scoreboard and button */
+    padding: 10px; /* Button padding */
+    font-family: 'Press Start 2P', cursive; /* Apply pixel font */
+    font-size: 16px; /* Font size */
+    position: absolute; /* Position it absolutely */
+}
+
+#debugButton {
+    bottom: 10px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+}
+
+#restartButton {
+    bottom: 10px; /* Distance from the bottom */
+    left: 10px; /* Distance from the left */
+}

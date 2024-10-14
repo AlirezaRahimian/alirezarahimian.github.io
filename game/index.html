@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Link to favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Pixel font -->
+    <title>Flappy Bird Clone</title>
+</head>
+<body>
+    <div id="scoreboard">Score: 0</div> <!-- Scoreboard outside the game box -->
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div id="gameOverMessage" style="display: none;">Game Over!</div> <!-- Game over message -->
+    <button id="debugButton">Debug</button> <!-- Debug button -->
+    <button id="restartButton">Restart</button> <!-- Restart button -->
+    
+    <!-- Audio elements -->
+    <audio id="jumpSound" src="audio/jump.mp3"></audio>
+    <audio id="backgroundMusic" src="audio/background.mp3" loop></audio>
+    <audio id="gameOverSound" src="audio/gameover.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
