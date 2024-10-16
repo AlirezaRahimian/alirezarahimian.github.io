@@ -62,3 +62,85 @@ canvas {
     bottom: 10px; /* Distance from the bottom */
     left: 10px; /* Distance from the left */
 }
+
+#leaderboard {
+    position: absolute; /* Position it absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: #00ffcc; /* Light teal text */
+    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    padding: 20px; /* Padding around the leaderboard */
+    border-radius: 10px; /* Rounded corners */
+    width: 300px; /* Fixed width */
+    text-align: center; /* Center text */
+    display: none; /* Initially hidden */
+    z-index: 2; /* Ensure it appears above other elements */
+}
+
+#leaderboard h2 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Font size for the title */
+}
+
+#leaderboardList {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+#leaderboardList li {
+    border-bottom: 1px solid #00ffcc; /* Light teal border */
+    padding: 5px 0; /* Padding for list items */
+}
+
+#nameInputContainer {
+    position: absolute; /* Position it absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background to match the leaderboard */
+    color: #00ffcc; /* Light teal text to match the theme */
+    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    padding: 20px; /* Padding around the input */
+    border-radius: 10px; /* Rounded corners */
+    display: none; /* Initially hidden */
+    z-index: 3; /* Ensure it appears above other elements */
+    text-align: center; /* Center text */
+    width: 300px; /* Fixed width for the container */
+}
+
+#nameInputContainer h2 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Font size for the title */
+}
+
+#playerNameInput {
+    width: 90%; /* Set width to 90% of the container */
+    padding: 10px; /* Padding for the input */
+    border: 2px solid #00ffcc; /* Light teal border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for input */
+    color: black; /* Text color */
+    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    font-size: 16px; /* Font size */
+    margin-bottom: 10px; /* Space below the input */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+#submitNameButton {
+    padding: 10px; /* Button padding */
+    font-family: 'Press Start 2P', cursive; /* Apply pixel font */
+    font-size: 16px; /* Font size */
+    background-color: #00ffcc; /* Light teal background */
+    color: black; /* Text color */
+    border: 2px solid #00ffcc; /* Light teal border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#submitNameButton:hover {
+    background-color: #009999; /* Darker teal on hover */
+    border-color: #009999; /* Darker border on hover */
+}

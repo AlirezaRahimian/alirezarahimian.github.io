@@ -7,35 +7,39 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Link to favicon -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Pixel font -->
     <title>Flappy Bird Clone</title>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-T2JKM3LT');</script>
-            <!-- End Google Tag Manager -->
-        
-            <!-- Hotjar Tracking Code for Site 5154946 (name missing) -->
-            <script>
-                (function(h,o,t,j,a,r){
-                    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                    h._hjSettings={hjid:5154946,hjsv:6};
-                    a=o.getElementsByTagName('head')[0];
-                    r=o.createElement('script');r.async=1;
-                    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                    a.appendChild(r);
-                })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-            </script>
-            <!-- End Hotjar Tracking Code -->
-        
-            <!-- Sentry Tracking Code -->
-            <script
-            src="https://js.sentry-cdn.com/bfc1f869ac552adddb9d56de890cb03a.min.js"
-            crossorigin="anonymous"
-          ></script>
-          <!-- End Sentry Tracking Code -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T2JKM3LT');</script>
+        <!-- End Google Tag Manager -->
+    
+        <!-- Hotjar Tracking Code for Site 5154946 (name missing) -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:5154946,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+        <!-- End Hotjar Tracking Code -->
+    
+        <!-- Sentry Tracking Code -->
+        <script
+        src="https://js.sentry-cdn.com/bfc1f869ac552adddb9d56de890cb03a.min.js"
+        crossorigin="anonymous"
+      ></script>
+      <!-- End Sentry Tracking Code -->
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2JKM3LT"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
     <div id="scoreboard">Score: 0</div> <!-- Scoreboard outside the game box -->
     <div id="game-container">
         <canvas id="gameCanvas"></canvas>
@@ -48,6 +52,29 @@
     <audio id="jumpSound" src="audio/jump.mp3"></audio>
     <audio id="backgroundMusic" src="audio/background.mp3" loop></audio>
     <audio id="gameOverSound" src="audio/gameover.mp3"></audio>
+
+    <!-- Add this section below the game container -->
+    <div id="leaderboard" style="display: none;"> <!-- Initially hidden -->
+        <h2>LEADERBOARD</h2>
+        <ol id="leaderboardList">
+            <li>Player 1: 23,500</li>
+            <li>Player 2: 19,750</li>
+            <li>Player 3: 16,300</li>
+            <li>Player 4: 12,200</li>
+            <li>Player 5: 9,800</li>
+            <li>Player 6: 7,300</li>
+            <li>Player 7: 6,700</li>
+            <li>Player 8: 4,300</li>
+            <li>Player 9: 3,100</li>
+            <li>Player 10: 2,500</li>
+        </ol>
+    </div>
+
+    <div id="nameInputContainer" style="display: none;"> <!-- New input container for player name -->
+        <h2>Enter Your Name</h2>
+        <input type="text" id="playerNameInput" placeholder="Your Name" />
+        <button id="submitNameButton">OK</button> <!-- OK button -->
+    </div>
 
     <script src="script.js"></script>
 </body>
