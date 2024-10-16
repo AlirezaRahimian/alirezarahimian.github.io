@@ -42,8 +42,18 @@ const jumpSound = document.getElementById('jumpSound');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const gameOverSound = document.getElementById('gameOverSound');
 
+// Add a variable to store the player's name
+let playerName = 'Player 1'; // You can change this to get the actual player's name
+
+// Add a variable to store the player's previous high score
+let previousHighScore = 0; // Initialize previous high score
+
+// Array to store leaderboard entries
+let leaderboardEntries = []; // Initialize as an empty array
+
 // Initialize game
 function init() {
+    loadLeaderboard(); // Load leaderboard from localStorage
     birdY = canvas.height / 2;
     gravity = 0.6;
     lift = -15;
@@ -145,6 +155,17 @@ function draw() {
             gameOverSound.play(); // Play game over sound
             document.getElementById('gameOverMessage').style.display = 'block'; // Show game over message
             backgroundMusic.pause(); // Stop background music
+            jumpSound.muted = true;
+
+            // Check if the current score is higher than the previous high score
+            if (score > previousHighScore) {
+                previousHighScore = score; // Update previous high score
+                showNameInput(); // Show name input when a new high score is achieved
+            } else {
+                updateLeaderboard(playerName, score); // Update the leaderboard with the player's score
+                document.getElementById('leaderboard').style.display = 'block'; // Show leaderboard
+            }
+
             return; // Exit the draw function
         }
 
@@ -162,23 +183,32 @@ function draw() {
 
 // Control the bird
 document.addEventListener('keydown', () => {
-    velocity += lift; // Apply lift on key press
-    jumpSound.play(); // Play jump sound
-    if (!backgroundMusic.paused) {
-        backgroundMusic.play(); // Play background music only if it's not already playing
+    if (!jumpSound.muted) { // Check if jump sound is not muted
+        velocity += lift; // Apply lift on key press
+        jumpSound.play(); // Play jump sound
     }
+    startBackgroundMusic(); // Start background music on key press
 });
 
 // Add touch event for mobile controls
 document.addEventListener('touchstart', (event) => {
-    event.preventDefault(); // Prevent default touch behavior
-    velocity += lift; // Apply lift on touch
-    jumpSound.play(); // Play jump sound
-    if (!backgroundMusic.paused) {
-        backgroundMusic.play(); // Play background music only if it's not already playing
+    const leaderboard = document.getElementById('leaderboard');
+    const isTouchInside = leaderboard.contains(event.target);
+
+    if (!isTouchInside) {
+        hideLeaderboard(); // Hide leaderboard if touch is outside
+    } else {
+        event.preventDefault(); // Prevent default touch behavior if inside leaderboard
     }
-    //console.log("Touch event detected!"); // Debugging log
-});
+
+    // Check if jump sound is not muted and apply lift
+    if (!jumpSound.muted && !isTouchInside) { // Only jump if not touching the leaderboard
+        velocity += lift; // Apply lift on touch
+        jumpSound.play(); // Play jump sound
+    }
+
+    startBackgroundMusic(); // Start background music on touch
+}, { passive: false }); // Set passive to false to allow preventDefault
 
 // Debug button functionality
 document.getElementById('debugButton').addEventListener('click', () => {
@@ -188,8 +218,97 @@ document.getElementById('debugButton').addEventListener('click', () => {
 // Restart button functionality
 document.getElementById('restartButton').addEventListener('click', () => {
     init(); // Restart the game
-    backgroundMusic.play(); // Play background music on restart
+    startBackgroundMusic() // Play background music on restart
+    jumpSound.muted = false; // Unmute jump sound on restart
 });
 
 // Start the game
 init(); // Initialize the game
+
+// Function to update the leaderboard
+function updateLeaderboard(playerName, score) {
+    // Check if the player already exists in the leaderboard
+    const existingEntry = leaderboardEntries.find(entry => entry.name === playerName);
+    
+    if (existingEntry) {
+        // Update the score if the player already exists
+        existingEntry.score = Math.max(existingEntry.score, score); // Keep the higher score
+    } else {
+        // Add new score to the leaderboard
+        leaderboardEntries.push({ name: playerName, score: score });
+    }
+
+    // Sort the leaderboard by score in descending order
+    leaderboardEntries.sort((a, b) => b.score - a.score);
+
+    // Keep only the top 10 entries
+    leaderboardEntries = leaderboardEntries.slice(0, 10);
+
+    // Save the leaderboard to localStorage
+    localStorage.setItem('leaderboardEntries', JSON.stringify(leaderboardEntries));
+
+    // Update the leaderboard display
+    const leaderboardList = document.getElementById('leaderboardList');
+    leaderboardList.innerHTML = ''; // Clear existing entries
+
+    leaderboardEntries.forEach(entry => {
+        const newEntry = document.createElement('li');
+        newEntry.textContent = `${entry.name}: ${entry.score}`;
+        leaderboardList.appendChild(newEntry);
+    });
+}
+
+// Function to load the leaderboard from localStorage
+function loadLeaderboard() {
+    const storedEntries = localStorage.getItem('leaderboardEntries');
+    if (storedEntries) {
+        leaderboardEntries = JSON.parse(storedEntries); // Parse the stored JSON string
+    }
+}
+
+// Function to hide the leaderboard
+function hideLeaderboard() {
+    document.getElementById('leaderboard').style.display = 'none'; // Hide leaderboard
+}
+
+// Event listener for clicks or touches outside the leaderboard and name input container
+document.addEventListener('click', (event) => {
+    const leaderboard = document.getElementById('leaderboard');
+    const nameInputContainer = document.getElementById('nameInputContainer');
+    
+    const isClickInsideLeaderboard = leaderboard.contains(event.target);
+    const isClickInsideNameInput = nameInputContainer.contains(event.target);
+    
+    // Hide leaderboard if click is outside both the leaderboard and name input container
+    if (!isClickInsideLeaderboard && !isClickInsideNameInput) {
+        hideLeaderboard(); // Hide leaderboard if click is outside
+    }
+});
+
+// Show name input when a new record is achieved
+function showNameInput() {
+    document.getElementById('nameInputContainer').style.display = 'block'; // Show input container
+    document.getElementById('leaderboard').style.display = 'none'; // Hide leaderboard
+}
+
+// Handle name submission
+document.getElementById('submitNameButton').addEventListener('click', () => {
+    const playerNameInput = document.getElementById('playerNameInput').value; // Get input value
+    if (playerNameInput) {
+        playerName = playerNameInput; // Update player name
+        document.getElementById('nameInputContainer').style.display = 'none'; // Hide input container
+        updateLeaderboard(playerName, score); // Update leaderboard with new name and score
+        
+        // Show leaderboard after hiding the name input container
+        document.getElementById('leaderboard').style.display = 'block'; // Show leaderboard
+    }
+});
+
+// Start background music after user interaction
+function startBackgroundMusic() {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play().catch(error => {
+            console.error("Error playing background music:", error);
+        });
+    }
+}
