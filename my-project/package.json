@@ -32,5 +32,11 @@
   },
   "strapi": {
     "uuid": "71dc8d2c-1592-4e28-9249-8a3f4a7a6df7"
+  },
+  "overrides": {
+    "axios": "^1.12.0"
+  },
+  "resolutions": {
+    "axios": "^1.12.0"
   }
 }
