@@ -1,0 +1,1 @@
+import{j as t}from"./react-vendor-D1hXCI4E.js";import{u as o}from"./auth.store-CW4ZMf1T.js";import{N as e,O as i}from"./index-D9K8A5n2.js";import"./middleware-Djvw55xs.js";import"./react-1im8O07e.js";import"./motion-DCAo9vMP.js";function c(){const{isAuthenticated:r}=o();return r?t.jsx(i,{}):t.jsx(e,{to:"/admin/login",replace:!0})}export{c as ProtectedRoute};

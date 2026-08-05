@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-D1hXCI4E.js";const s={sm:"p-4",md:"p-6",lg:"p-8"};function e({children:r,className:p="",padding:d="md"}){return o.jsx("div",{className:`border border-border bg-paper ${s[d]} ${p}`,children:r})}export{e as C};

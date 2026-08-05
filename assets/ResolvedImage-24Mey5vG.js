@@ -1,0 +1,1 @@
+import{r as s,j as i}from"./react-vendor-D1hXCI4E.js";import{K as u}from"./index-D9K8A5n2.js";function m({src:e,alt:o="",...a}){const[r,l]=s.useState();return s.useEffect(()=>{let t=!1;return u(e).then(n=>{t||l(n)}),()=>{t=!0}},[e]),r?i.jsx("img",{src:r,alt:o,...a}):null}export{m as R};

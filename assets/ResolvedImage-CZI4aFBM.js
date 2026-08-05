@@ -1,1 +1,0 @@
-import{r as s,X as u,j as i}from"./index-BG5qvBud.js";function f({src:e,alt:o="",...a}){const[t,l]=s.useState();return s.useEffect(()=>{let r=!1;return u(e).then(n=>{r||l(n)}),()=>{r=!0}},[e]),t?i.jsx("img",{src:t,alt:o,...a}):null}export{f as R};
